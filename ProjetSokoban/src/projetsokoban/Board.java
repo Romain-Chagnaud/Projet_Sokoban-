@@ -10,5 +10,11 @@ package projetsokoban;
  * @author romai
  */
 public class Board {
+   public int col;
+   public int row;
+   public String name;
     
+    public Board(String name, int row, int col){
+        
+    }
 }
