@@ -24,7 +24,7 @@ public class Board {
         board = new char[row][col];
 
     }
-
+    
     public void display() {
         afficherRows();
         System.out.println(" ");
@@ -53,5 +53,9 @@ public class Board {
         }
     }
     
+     public void addHorizontalWall(int row, int col, int size){
+          
+         System.out.println("#");
+     }
 
 }

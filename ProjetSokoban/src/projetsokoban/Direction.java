@@ -9,15 +9,8 @@ package projetsokoban;
  *
  * @author romai
  */
-public class Player {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Board b = new Board(" ", 5, 4);
-        b.display();
-        b.addHorizontalWall(2, 1, 3);
+public class Direction {
+    public enum Directions{
+        Haut, Bas, Gauche, Droite
     }
-    
 }
