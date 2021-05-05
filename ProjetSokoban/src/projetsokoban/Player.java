@@ -9,13 +9,14 @@ package projetsokoban;
  *
  * @author romai
  */
-public class ProjetSokoban {
+public class Player {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Board b = new Board("hello", 5, 4);
+        b.display();
     }
     
 }
