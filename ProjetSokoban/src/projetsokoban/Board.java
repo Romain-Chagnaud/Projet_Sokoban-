@@ -28,7 +28,9 @@ public class Board {
     public void display() {
         afficherRows();
         System.out.println(" ");
+        bar();
         afficherCols();
+        bar();
     }
 
     private void afficherRows() {
@@ -36,7 +38,7 @@ public class Board {
         System.out.print("    ");
         for (int c = 0; c < cols; c++) {
             System.out.print(c + " ");
-        }
+        }       
     }
     
      private void afficherCols() {
@@ -45,13 +47,26 @@ public class Board {
             if (r <= 9) {
                 System.out.print(" ");
             }
-            System.out.print(" ");
+            System.out.print("|");
             for (int c = 1; c < cols; c++) {
-                System.out.print("  ");
+                System.out.print("   ");
             }
+            System.out.print("|");
             System.out.println(" ");
+            
         }
     }
+     
+       private void bar() {
+
+        System.out.print("   " + "+");
+        for (int c = 0; c < cols; c++) {
+            System.out.print("--");
+            System.out.print(" ");
+        }
+        System.out.println("+");
+    }
+       
     
      public void addHorizontalWall(int row, int col, int size){
           

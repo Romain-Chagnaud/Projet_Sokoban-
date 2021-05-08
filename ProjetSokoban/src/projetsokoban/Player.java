@@ -15,7 +15,7 @@ public class Player {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Board b = new Board(" ", 5, 4);
+        Board b = new Board(" coucou ", 50, 15);
         b.display();
         b.addHorizontalWall(2, 1, 3);
     }
