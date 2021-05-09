@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projetsokoban;
+
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Scanner;
  * @author romai
  */
 public class Player {
-    
+
     /**
      * @param args the command line arguments
      */
@@ -21,9 +22,11 @@ public class Player {
         int rows = consol.nextInt();
         System.out.println("Nombre de colonnes :");
         int cols = consol.nextInt();
-        Board b = new Board(" coucou ", rows, cols);
+        Board b = new Board("coucou", 10, 10);
         b.display();
         b.addHorizontalWall(2, 1, 3);
+        b.addTarget(2, 5);
+
     }
-    
+
 }

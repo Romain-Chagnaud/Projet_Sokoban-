@@ -5,6 +5,10 @@
  */
 package projetsokoban;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
 /**
  *
  * @author romai
@@ -15,6 +19,8 @@ public class Board {
     public int rows;
     public String names;
     public char[][] board;
+    
+    
 
     public Board(String name, int row, int col) {
         this.names = name;
@@ -24,21 +30,21 @@ public class Board {
         System.out.println(name);
         System.out.println("ligne: " + row);
         System.out.println("colonne: " + col);
+        
 
     }
-
 
     public void display() {
         System.out.println(" ");
-        afficherRows();
+        afficherCols();
         System.out.println(" ");
         Bar();
-        afficherCols();
+        afficherRows();
         Bar();
     }
 
-    private void afficherCols() {
-        for (int r = 0; r < cols; r++) {
+    private void afficherRows() {
+        for (int r = 0; r < rows; r++) {
             System.out.print(r);
             if (r <= 9) {
                 System.out.print(" ");
@@ -47,7 +53,7 @@ public class Board {
                 System.out.print(" ");
             }
             System.out.print("|");
-            for (int c = 0; c < rows; c++) {
+            for (int c = 0; c < cols; c++) {
                 System.out.print("  ");
                 if (c > 9) {
                     System.out.print(" ");
@@ -61,12 +67,12 @@ public class Board {
     }
 
     /**
-     * affiche la barre "+----+"
+     * affiche la barre
      */
     private void Bar() {
 
         System.out.print("   " + "+");
-        for (int c = 0; c < rows; c++) {
+        for (int c = 0; c < cols; c++) {
             System.out.print("--");
             if (c > 9) {
                 System.out.print("-");
@@ -79,17 +85,33 @@ public class Board {
     }
 
     /**
-     *
+     * Permet d'afficher les colones
      */
-    private void afficherRows() {
+    private void afficherCols() {
         System.out.print("    ");
-        for (int c = 0; c < rows; c++) {
+        for (int c = 0; c < cols; c++) {
             System.out.print(c + " ");
         }
     }
 
     public void addHorizontalWall(int row, int col, int size) {
+        
+        System.out.println("cc");
+    }
+    
+    public void addVerticalWall(){
         System.out.println("#");
     }
-
+    
+    public void addBox(int row, int col){
+        System.out.println("C");
+    }
+    
+    public void addTarget(int row, int col){
+        System.out.println("C");
+    }
+    
+    public void setPosition(){
+        
+    }
 }
