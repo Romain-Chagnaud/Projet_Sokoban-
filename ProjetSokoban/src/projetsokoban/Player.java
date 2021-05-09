@@ -22,7 +22,7 @@ public class Player {
         int rows = consol.nextInt();
         System.out.println("Nombre de colonnes :");
         int cols = consol.nextInt();
-        Board b = new Board("coucou", 10, 10);
+        Board b = new Board("coucou", rows, cols);
         b.display();
         b.addHorizontalWall(2, 1, 3);
         b.addTarget(2, 5);
