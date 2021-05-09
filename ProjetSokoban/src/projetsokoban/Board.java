@@ -20,57 +20,76 @@ public class Board {
         this.names = name;
         this.rows = row;
         this.cols = col;
-
         board = new char[row][col];
+        System.out.println(name);
+        System.out.println("ligne: " + row);
+        System.out.println("colonne: " + col);
 
     }
-    
+
+
     public void display() {
+        System.out.println(" ");
         afficherRows();
         System.out.println(" ");
-        bar();
+        Bar();
         afficherCols();
-        bar();
+        Bar();
     }
 
-    private void afficherRows() {
-        
-        System.out.print("    ");
-        for (int c = 0; c < cols; c++) {
-            System.out.print(c + " ");
-        }       
-    }
-    
-     private void afficherCols() {
-       for (int r = 0; r < rows; r++) {
-            System.out.print(r + " ");
+    private void afficherCols() {
+        for (int r = 0; r < cols; r++) {
+            System.out.print(r);
             if (r <= 9) {
                 System.out.print(" ");
             }
-            System.out.print("|");
-            for (int c = 1; c < cols; c++) {
-                System.out.print("   ");
+            if (r <= 99) {
+                System.out.print(" ");
             }
             System.out.print("|");
-            System.out.println(" ");
-            
+            for (int c = 0; c < rows; c++) {
+                System.out.print("  ");
+                if (c > 9) {
+                    System.out.print(" ");
+                }
+                if (c > 99) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("|");
         }
     }
-     
-       private void bar() {
+
+    /**
+     * affiche la barre "+----+"
+     */
+    private void Bar() {
 
         System.out.print("   " + "+");
-        for (int c = 0; c < cols; c++) {
+        for (int c = 0; c < rows; c++) {
             System.out.print("--");
-            System.out.print(" ");
+            if (c > 9) {
+                System.out.print("-");
+            }
+            if (c > 99) {
+                System.out.print("-");
+            }
         }
         System.out.println("+");
     }
-       
-    
-     public void addHorizontalWall(int row, int col, int size){
-          
-         System.out.println("#");
-     }
+
+    /**
+     *
+     */
+    private void afficherRows() {
+        System.out.print("    ");
+        for (int c = 0; c < rows; c++) {
+            System.out.print(c + " ");
+        }
+    }
+
+    public void addHorizontalWall(int row, int col, int size) {
+        System.out.println("#");
+    }
 
 }

@@ -4,18 +4,24 @@
  * and open the template in the editor.
  */
 package projetsokoban;
+import java.util.Scanner;
 
 /**
  *
  * @author romai
  */
 public class Player {
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Board b = new Board(" coucou ", 50, 15);
+        Scanner consol = new Scanner(System.in);
+        System.out.println("Nombre de lignes :");
+        int rows = consol.nextInt();
+        System.out.println("Nombre de colonnes :");
+        int cols = consol.nextInt();
+        Board b = new Board(" coucou ", rows, cols);
         b.display();
         b.addHorizontalWall(2, 1, 3);
     }
