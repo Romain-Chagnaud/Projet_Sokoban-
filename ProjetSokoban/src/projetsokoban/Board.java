@@ -19,7 +19,7 @@ public class Board {
     public int rows;
     public String names;
     public char[][] board;
-//    ArrayList<char> caracteres = new ArrayList<char>(); 
+    ArrayList<Position> box = new ArrayList<Position>(); 
     
 
     public Board(String name, int row, int col) { 
@@ -41,8 +41,13 @@ public class Board {
         Bar();
         afficherRows();
         Bar();
+       
     }
-
+    
+    public void draw(){
+        
+    } 
+    
     private void afficherRows() {
         for (int r = 0; r < rows; r++) {
             System.out.print(r);
