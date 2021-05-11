@@ -24,8 +24,9 @@ public class Player {
         int cols = consol.nextInt();
         Board b = new Board("coucou", rows, cols);
        
-        b.addHorizontalWall(2, 2, 3);
-       b.addBox(0, 0);
+        b.addHorizontalWall(2, 2, 5);
+        b.addVerticalWall(0, 0, 6);
+       b.addBox(9, 9);
        b.addTarget(1, 2);
         b.display();
 

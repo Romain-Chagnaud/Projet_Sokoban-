@@ -54,7 +54,7 @@ public class Board {
         for (Position destination : target) {
             board[destination.rows][destination.cols] = 'X';
         }
-        
+
         for (Position mur : wall) {
             board[mur.rows][mur.cols] = '#';
         }
@@ -70,10 +70,9 @@ public class Board {
                 System.out.print(" " + board[r][c]);
             }
             System.out.println(" ");
-        }        
+        }
     }
 
-   
     /**
      * Permet d'afficher les colones
      */
@@ -87,17 +86,18 @@ public class Board {
     public void addHorizontalWall(int x, int y, int size) {
         //boucle qui permet de mettre de un mur hozital en fonction 
         //param.
-        
-        for(int c = 0; c < rows; c++){
-            Position pos = new Position(x, y);
+
+        for (int c = 0; c < size; c++) {
+            Position pos = new Position(x, y + c);
             wall.add(pos);
         }
-        
-
     }
 
-    public void addVerticalWall() {
-        
+    public void addVerticalWall(int x, int y, int size) {
+        for (int c = 0; c < size; c++) {
+            Position pos = new Position(x + c, y);
+            wall.add(pos);
+        }
     }
 
     public void addBox(int x, int y) {
@@ -111,6 +111,6 @@ public class Board {
     }
 
     public void setPosition() {
-        
+
     }
 }
