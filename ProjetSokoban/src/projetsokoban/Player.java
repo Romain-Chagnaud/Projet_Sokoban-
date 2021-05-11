@@ -23,9 +23,11 @@ public class Player {
         System.out.println("Nombre de colonnes :");
         int cols = consol.nextInt();
         Board b = new Board("coucou", rows, cols);
+       
+       // b.addHorizontalWall(2, 1, 3);
+       b.addBox(0, 0);
+       b.addTarget(5, 5);
         b.display();
-        b.addHorizontalWall(2, 1, 3);
-        b.addTarget(2, 5);
 
     }
 

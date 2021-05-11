@@ -10,8 +10,8 @@ package projetsokoban;
  * @author romai
  */
 public class Position {
-    private int cols;
-    private int rows;
+    public int cols;
+    public int rows;
     
     public Position(int row, int col){
         this.cols = col;

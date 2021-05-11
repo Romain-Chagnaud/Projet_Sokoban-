@@ -19,10 +19,11 @@ public class Board {
     public int rows;
     public String names;
     public char[][] board;
-    ArrayList<Position> box = new ArrayList<Position>(); 
-    
+    ArrayList<Position> box = new ArrayList<>();
+    ArrayList<Position> target = new ArrayList<>();
+    ArrayList<Position> wall = new ArrayList<>();
 
-    public Board(String name, int row, int col) { 
+    public Board(String name, int row, int col) {
         this.names = name;
         this.rows = row;
         this.cols = col;
@@ -30,65 +31,49 @@ public class Board {
         System.out.println(name);
         System.out.println("ligne: " + row);
         System.out.println("colonne: " + col);
-        
 
     }
 
     public void display() {
+        remplirTab();
         System.out.println(" ");
         afficherCols();
         System.out.println(" ");
-        Bar();
         afficherRows();
-        Bar();
-       
+
     }
-    
-    public void draw(){
+
+    public void remplirTab() {
+        for (char[] row : board) { //pour chaque ligne
+            Arrays.fill(row, '.'); //remplir une lligne de caractère 
+        }
+        for (Position boite : box) {
+            board[boite.rows][boite.cols] = 'c';
+        }
+
+        for (Position destination : target) {
+            board[destination.rows][destination.cols] = 'X';
+        }
         
-    } 
-    
+        for (Position mur : wall) {
+            board[mur.rows][mur.cols] = '#';
+        }
+    }
+
     private void afficherRows() {
         for (int r = 0; r < rows; r++) {
-            System.out.print(r);
+            System.out.print(r + " ");
             if (r <= 9) {
                 System.out.print(" ");
             }
-            if (r <= 99) {
-                System.out.print(" ");
-            }
-            System.out.print("|");
             for (int c = 0; c < cols; c++) {
-                System.out.print("  ");
-                if (c > 9) {
-                    System.out.print(" ");
-                }
-                if (c > 99) {
-                    System.out.print(" ");
-                }
+                System.out.print(" " + board[r][c]);
             }
-            System.out.println("|");
-        }
+            System.out.println(" ");
+        }        
     }
 
-    /**
-     * affiche la barre
-     */
-    private void Bar() {
-
-        System.out.print("   " + "+");
-        for (int c = 0; c < cols; c++) {
-            System.out.print("--");
-            if (c > 9) {
-                System.out.print("-");
-            }
-            if (c > 99) {
-                System.out.print("-");
-            }
-        }
-        System.out.println("+");
-    }
-
+   
     /**
      * Permet d'afficher les colones
      */
@@ -99,24 +84,28 @@ public class Board {
         }
     }
 
-    public void addHorizontalWall(int row, int col, int size) {
+    public void addHorizontalWall(int x, int y, int size) {
+        //boucle qui permet de mettre de un mur hozital en fonction 
+        //param.
         
-        System.out.println("cc");
+
     }
-    
-    public void addVerticalWall(){
-        System.out.println("#");
-    }
-    
-    public void addBox(int row, int col){
-        System.out.println("C");
-    }
-    
-    public void addTarget(int row, int col){
-        System.out.println("C");
-    }
-    
-    public void setPosition(){
+
+    public void addVerticalWall() {
         
+    }
+
+    public void addBox(int x, int y) {
+        Position pos = new Position(x, y);
+        box.add(pos);
+    }
+
+    public void addTarget(int row, int col) {
+        Position pos = new Position(row, col);
+        target.add(pos);
+    }
+
+    public void setPosition() {
+
     }
 }
