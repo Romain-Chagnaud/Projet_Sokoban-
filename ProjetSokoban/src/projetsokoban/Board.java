@@ -88,9 +88,9 @@ public class Board {
         //boucle qui permet de mettre de un mur hozital en fonction 
         //param.
         
-        for(size = 0; size < 0; size++){
-            
-            //wall.add();
+        for(int c = 0; c < rows; c++){
+            Position pos = new Position(x, y);
+            wall.add(pos);
         }
         
 
