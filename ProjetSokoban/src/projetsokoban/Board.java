@@ -88,6 +88,11 @@ public class Board {
         //boucle qui permet de mettre de un mur hozital en fonction 
         //param.
         
+        for(size = 0; size < 0; size++){
+            
+            //wall.add();
+        }
+        
 
     }
 
@@ -106,6 +111,6 @@ public class Board {
     }
 
     public void setPosition() {
-
+        
     }
 }
