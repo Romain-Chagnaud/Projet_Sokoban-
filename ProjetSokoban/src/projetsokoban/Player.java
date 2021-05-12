@@ -13,6 +13,8 @@ import java.util.Scanner;
  */
 public class Player {
 
+    private static boolean over;
+
     /**
      * @param args the command line arguments
      */
@@ -35,4 +37,24 @@ public class Player {
 
     }
 
+    public class Direction {
+
+        Scanner coord = new Scanner(System.in); // demander la direction 
+        Position pos = new Position(0, 0);
+
+        public void dialogue() {
+            String dir = coord.nextLine();
+            System.out.println("Commande : [LRUD]");
+            if ("/quit".equals(dir)) {
+                Player.over = true;
+            } else {
+//                switch(){
+//                    case 'u':
+//                        Board.pos(-1, 0);
+//                        break;
+//             }
+
+            }
+        }
+    }
 }
