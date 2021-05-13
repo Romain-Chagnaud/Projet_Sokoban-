@@ -5,15 +5,16 @@
  */
 package projetsokoban;
 
+import java.awt.Dialog;
 import java.util.Scanner;
 
 /**
  *
  * @author romai
  */
-public class Player extends Direction {
+public class Player  {
 
-    private static boolean over;
+    public static boolean over;
 
     /**
      * @param args the command line arguments
@@ -25,7 +26,8 @@ public class Player extends Direction {
         System.out.println("Nombre de colonnes :");
         int cols = consol.nextInt();
         Board b = new Board("coucou", rows, cols);
-
+        DirectionJoueur d = new DirectionJoueur();
+        
         b.addHorizontalWall(0, 0, 4);
         b.addVerticalWall(0, 0, 3);
         b.addHorizontalWall(4, 4, 2);
@@ -34,39 +36,7 @@ public class Player extends Direction {
         b.addTarget(1, 2);
         b.setPosition(5, 5);
         b.display();
-
-    }
-
-    public class DirectionJoueur {
-
-        Scanner coord = new Scanner(System.in); // demander la direction 
-        Position pos = new Position(0, 0);
-
-        public void dialogue(Board b) {
-            String dir = coord.nextLine();
-            System.out.println("Commande : [LRUD]");
-            if ("/quit".equals(dir)) {
-                Player.over = true;
-            } else {
-////                switch() {
-//                    case 'u':
-//                        deplacementJoueur(-1, 0);
-//                        break;
-//                        
-//                    case 'R':
-//                        deplacementJoueur(1, 0);
-//                        break;
-//                        
-//                    case 'U':
-//                        deplacementJoueur(0, 1);
-//                        break;
-//                        
-//                    case 'D':
-//                        deplacementJoueur(0, -1);
-//                        break;
-//                }
-
-            }
-        }
+        d.dialogue(b);
+        
     }
 }
