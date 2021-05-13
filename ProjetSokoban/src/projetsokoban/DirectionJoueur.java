@@ -38,6 +38,7 @@ public class DirectionJoueur extends Direction {
                 case "D":
                     deplacementJoueur(0, -1);
                     break;
+                default:
             }
 
         }

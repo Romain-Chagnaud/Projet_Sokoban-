@@ -16,10 +16,10 @@ public class Direction {
 //        Haut, Bas, Gauche, Droite
 //    }
     
-    ArrayList<Position> deplacement = new ArrayList<>();
+    ArrayList<Position> charcter = new ArrayList<>();
     
     public void deplacementJoueur(int x, int y){
         Position pos = new Position(x, y);
-        deplacement.add(pos);
+        charcter.add(pos);
     }
 }
