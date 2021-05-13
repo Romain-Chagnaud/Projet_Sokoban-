@@ -5,12 +5,21 @@
  */
 package projetsokoban;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author romai
  */
 public class Direction {
-    public enum Directions{
-        Haut, Bas, Gauche, Droite
+//    public enum Directions{
+//        Haut, Bas, Gauche, Droite
+//    }
+    
+    ArrayList<Position> deplacement = new ArrayList<>();
+    
+    public void deplacementJoueur(int x, int y){
+        Position pos = new Position(x, y);
+        deplacement.add(pos);
     }
 }

@@ -114,8 +114,8 @@ public class Board {
         box.add(pos);
     }
 
-    public void addTarget(int row, int col) {
-        Position pos = new Position(row, col);
+    public void addTarget(int x, int y) {
+        Position pos = new Position(x, y);
         target.add(pos);
     }
 

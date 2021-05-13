@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author romai
  */
-public class Player {
+public class Player extends Direction {
 
     private static boolean over;
 
@@ -37,22 +37,34 @@ public class Player {
 
     }
 
-    public class Direction {
+    public class DirectionJoueur {
 
         Scanner coord = new Scanner(System.in); // demander la direction 
         Position pos = new Position(0, 0);
 
-        public void dialogue() {
+        public void dialogue(Board b) {
             String dir = coord.nextLine();
             System.out.println("Commande : [LRUD]");
             if ("/quit".equals(dir)) {
                 Player.over = true;
             } else {
-//                switch(){
+////                switch() {
 //                    case 'u':
-//                        Board.pos(-1, 0);
+//                        deplacementJoueur(-1, 0);
 //                        break;
-//             }
+//                        
+//                    case 'R':
+//                        deplacementJoueur(1, 0);
+//                        break;
+//                        
+//                    case 'U':
+//                        deplacementJoueur(0, 1);
+//                        break;
+//                        
+//                    case 'D':
+//                        deplacementJoueur(0, -1);
+//                        break;
+//                }
 
             }
         }
