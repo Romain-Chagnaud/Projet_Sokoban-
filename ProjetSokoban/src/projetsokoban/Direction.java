@@ -5,8 +5,6 @@
  */
 package projetsokoban;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author romai
@@ -20,11 +18,5 @@ public class Direction {
 //    public Direction Bas;
 //    public Direction Droite;
 //    public Direction Gauche;
-    
-    ArrayList<Position> charcter = new ArrayList<>();
-    
-    public void deplacementJoueur(int x, int y){
-        Position pos = new Position(x, y);
-        charcter.add(pos);
-    }
+
 }

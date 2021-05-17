@@ -5,21 +5,21 @@
  */
 package projetsokoban;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
  * @author romai
  */
-public class DirectionJoueur extends Direction {
-    
-    Scanner coord = new Scanner(System.in); // demander la direction 
-//    Position pos = new Position(0, 0);
-    
+public class DirectionJoueur {
+
+    Scanner coord = new Scanner(System.in);
 
     public void dialogue(Board b) {
+
         System.out.println("Commande : [LRUD]");
-        String dir = coord.nextLine();
+        String dir = coord.nextLine(); // demander la direction
         if ("/quit".equals(dir)) {
             Player.over = true;
         } else {
@@ -41,7 +41,15 @@ public class DirectionJoueur extends Direction {
                     break;
                 default:
             }
-            
+            System.out.println("ou est le plateau ? ");
         }
     }
+
+    ArrayList<Position> charcter = new ArrayList<>();
+
+    public void deplacementJoueur(int x, int y) {
+        Position pos = new Position(x, y);
+        charcter.add(pos);
+    }
+
 }
