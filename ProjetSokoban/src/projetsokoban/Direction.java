@@ -16,10 +16,10 @@ public class Direction {
 //        Haut, Bas, Gauche, Droite
 //    }
     
-    public Direction Haut;
-    public Direction Bas;
-    public Direction Droite;
-    public Direction Gauche;
+//    public Direction Haut;
+//    public Direction Bas;
+//    public Direction Droite;
+//    public Direction Gauche;
     
     ArrayList<Position> charcter = new ArrayList<>();
     

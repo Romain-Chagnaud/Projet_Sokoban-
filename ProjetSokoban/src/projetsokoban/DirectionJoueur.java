@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class DirectionJoueur extends Direction {
     
     Scanner coord = new Scanner(System.in); // demander la direction 
-    Position pos = new Position(0, 0);
+//    Position pos = new Position(0, 0);
     
 
     public void dialogue(Board b) {

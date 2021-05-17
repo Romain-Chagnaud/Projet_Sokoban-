@@ -38,6 +38,7 @@ public class Player {
         b.setPosition(5, 5);
         b.display();
         d.dialogue(b);
+        
 
     }
 }

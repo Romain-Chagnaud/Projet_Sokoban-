@@ -23,6 +23,7 @@ public class Board{
     ArrayList<Position> target = new ArrayList<>();
     ArrayList<Position> wall = new ArrayList<>();
     ArrayList<Position> charcter = new ArrayList<>();
+    Position perso;
 
     public Board(String name, int row, int col) {
         this.names = name;
