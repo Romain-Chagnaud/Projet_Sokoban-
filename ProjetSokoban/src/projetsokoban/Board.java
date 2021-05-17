@@ -13,7 +13,7 @@ import java.util.Arrays;
  *
  * @author romai
  */
-public class Board {
+public class Board{
 
     public int cols;
     public int rows;
@@ -30,8 +30,8 @@ public class Board {
         this.cols = col;
         board = new char[row][col];
         System.out.println(name);
-        System.out.println("ligne: " + row);
-        System.out.println("colonne: " + col);
+//        System.out.println("ligne: " + row);
+//        System.out.println("colonne: " + col);
 
     }
 
