@@ -21,19 +21,19 @@ public class Player {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Scanner consol = new Scanner(System.in);
-//        System.out.println("Nombre de lignes :");
-//        int rows = consol.nextInt();
-//        System.out.println("Nombre de colonnes :");
-//        int cols = consol.nextInt();
-        Board b = new Board("coucou", 10, 10);
+        Scanner consol = new Scanner(System.in);
+        System.out.println("Nombre de lignes :");
+        int rows = consol.nextInt();
+        System.out.println("Nombre de colonnes :");
+        int cols = consol.nextInt();
+        Board b = new Board("coucou", rows, cols);
         DirectionJoueur d = new DirectionJoueur();
 
-        b.addHorizontalWall(0, 0, 4);
-        b.addVerticalWall(0, 0, 3);
-        b.addHorizontalWall(4, 4, 2);
-        b.addVerticalWall(4, 3, 3);
-        b.addBox(9, 9);
+        b.addHorizontalWall(0, 0, rows-1);
+        b.addVerticalWall(0, 0, cols-1);
+        b.addHorizontalWall(9, 1, rows-1);
+        b.addVerticalWall(1, 9, cols-1);
+        b.addBox(4, 5);
         b.addTarget(1, 2);
         b.setPosition(5, 5);
         b.display();
