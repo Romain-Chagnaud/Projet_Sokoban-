@@ -17,9 +17,8 @@ public class DirectionJoueur {
     Scanner coord = new Scanner(System.in);
 
     public void dialogue(Board b) {
-
         System.out.println("Commande : [LRUD]");
-        String dir = coord.nextLine(); // demander la direction
+        String dir = coord.nextLine();// demander la direction
         if ("/quit".equals(dir)) {
             Player.over = true;
         } else {
@@ -41,8 +40,11 @@ public class DirectionJoueur {
                     break;
                 default:
             }
+
             System.out.println("ou est le plateau ? ");
+
         }
+
     }
 
     ArrayList<Position> charcter = new ArrayList<>();
