@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author romai
  */
-public class DirectionJoueur {
+public class DirectionJoueur extends Player {
 
     Scanner coord = new Scanner(System.in);
 
@@ -24,34 +24,23 @@ public class DirectionJoueur {
         } else {
             switch (dir) {
                 case "L":
-                    deplacementJoueur(-1, 0);
+                    b.newPosition(-1, 0);
                     break;
 
                 case "R":
-                    deplacementJoueur(1, 0);
+                    b.newPosition(1, 0);
                     break;
 
                 case "U":
-                    deplacementJoueur(0, 1);
+                    b.newPosition(0, 1);
                     break;
 
                 case "D":
-                    deplacementJoueur(0, -1);
+                    b.newPosition(0, -1);
                     break;
                 default:
             }
-
-            System.out.println("ou est le plateau ? ");
-
+            System.out.println("afficher le nouveau plateau");
         }
-
     }
-
-    ArrayList<Position> charcter = new ArrayList<>();
-
-    public void deplacementJoueur(int x, int y) {
-        Position pos = new Position(x, y);
-        charcter.add(pos);
-    }
-
 }

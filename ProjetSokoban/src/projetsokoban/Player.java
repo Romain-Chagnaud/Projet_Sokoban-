@@ -13,32 +13,31 @@ import java.util.Scanner;
  * @author romai
  */
 public class Player {
-    
-    
+
     public static boolean over;
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner consol = new Scanner(System.in);
-        System.out.println("Nombre de lignes :");
-        int rows = consol.nextInt();
-        System.out.println("Nombre de colonnes :");
-        int cols = consol.nextInt();
-        Board b = new Board("coucou", rows, cols);
+//        Scanner consol = new Scanner(System.in);
+//        System.out.println("Nombre de lignes :");
+//        int rows = consol.nextInt();
+//        System.out.println("Nombre de colonnes :");
+//        int cols = consol.nextInt();
+        Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
 
-        b.addHorizontalWall(0, 0, rows-1);
-        b.addVerticalWall(0, 0, cols-1);
-        b.addHorizontalWall(9, 1, rows-1);
-        b.addVerticalWall(1, 9, cols-1);
-        b.addBox(4, 5);
-        b.addTarget(1, 2);
-        b.setPosition(5, 5);
+        b.addHorizontalWall(0, 0, 3);
+        b.addVerticalWall(0, 0, 4);
+        b.addHorizontalWall(1, 0, 2);
+        b.addVerticalWall(1, 2, 2);
+//        b.addBox(4, 5);
+//        b.addTarget(1, 2);
+        b.setPosition(2, 2);
         b.display();
         d.dialogue(b);
-        
+        b.display();
 
     }
 }

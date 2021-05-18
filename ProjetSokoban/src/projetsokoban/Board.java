@@ -13,7 +13,7 @@ import java.util.Arrays;
  *
  * @author romai
  */
-public class Board{
+public class Board {
 
     public int cols;
     public int rows;
@@ -60,11 +60,11 @@ public class Board{
         for (Position mur : wall) {
             board[mur.rows][mur.cols] = '#';
         }
-        
+
         for (Position perso : charcter) {
             board[perso.rows][perso.cols] = 'P';
         }
-        
+
     }
 
     private void afficherRows() {
@@ -89,7 +89,7 @@ public class Board{
     private void afficherCols() {
         System.out.print("    ");
         for (int c = 0; c < cols; c++) {
-            System.out.print(c + " " );
+            System.out.print(c + " ");
         }
     }
 
@@ -123,5 +123,10 @@ public class Board{
     public void setPosition(int x, int y) {
         Position pos = new Position(x, y);
         charcter.add(pos);
+    }
+
+    public Position newPosition(int x, int y) {
+        Position pos = new Position(x, y);
+        return pos;
     }
 }
