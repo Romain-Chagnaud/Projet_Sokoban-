@@ -14,33 +14,33 @@ import java.util.Scanner;
  */
 public class DirectionJoueur extends Player {
 
+    ArrayList<Position> character = new ArrayList<>();
+
     Scanner coord = new Scanner(System.in);
 
     public void dialogue(Board b) {
         System.out.println("Commande : [LRUD]");
         String dir = coord.nextLine();// demander la direction
-        if ("/quit".equals(dir)) {
-            Player.over = true;
-        } else {
-            switch (dir) {
-                case "L":
-                    b.newPosition(-1, 0);
-                    break;
+//        if ("/quit".equals(dir)) {
+//            Player.over = true;
+//        } else {
+        switch (dir) {
+            case "L":
+                b.newPosition(0, -1);
+                break;
 
-                case "R":
-                    b.newPosition(1, 0);
-                    break;
+            case "U":
+                b.newPosition(-1, 0);
+                break;
 
-                case "U":
-                    b.newPosition(0, 1);
-                    break;
+            case "R":
+                b.newPosition(0, 1);
+                break;
 
-                case "D":
-                    b.newPosition(0, -1);
-                    break;
-                default:
-            }
-            System.out.println("afficher le nouveau plateau");
+            case "D":
+                b.newPosition(1, 0);
+                break;
+            default:
         }
     }
 }

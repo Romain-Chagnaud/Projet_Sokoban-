@@ -5,9 +5,12 @@
  */
 package projetsokoban;
 
+import com.sun.source.tree.Tree;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.TreeSet;
 
 /**
  *
@@ -22,8 +25,8 @@ public class Board {
     ArrayList<Position> box = new ArrayList<>();
     ArrayList<Position> target = new ArrayList<>();
     ArrayList<Position> wall = new ArrayList<>();
-    ArrayList<Position> charcter = new ArrayList<>();
-    Position perso;
+    ArrayList<Position> character = new ArrayList<>();
+//    ArrayList<Position> poss = new ArrayList<>();
 
     public Board(String name, int row, int col) {
         this.names = name;
@@ -61,7 +64,7 @@ public class Board {
             board[mur.rows][mur.cols] = '#';
         }
 
-        for (Position perso : charcter) {
+        for (Position perso : character) {
             board[perso.rows][perso.cols] = 'P';
         }
 
@@ -122,11 +125,16 @@ public class Board {
 
     public void setPosition(int x, int y) {
         Position pos = new Position(x, y);
-        charcter.add(pos);
+        character.add(pos);
     }
 
-    public Position newPosition(int x, int y) {
-        Position pos = new Position(x, y);
-        return pos;
+    public void newPosition(int x, int y) {
+        Position pos = new Position(x , y);
+        character.remove(x); //enlver le caractère 'P' de base
+        character.add(pos);
+        
+        //fonction qui calcul l'addition ou la soustraction 
+        //des coordonées actuels et celle donnée par le switch
+        // newPosition = x
     }
 }
