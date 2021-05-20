@@ -36,8 +36,10 @@ public class Player {
 //        b.addTarget(1, 2);
         b.setPosition(2, 2);
         b.display();
-        d.dialogue(b);
-        b.display();
+        for (int x = 0; x < 10; x++) {
+            d.dialogue(b);
+            b.display();
+        }
 
     }
 }

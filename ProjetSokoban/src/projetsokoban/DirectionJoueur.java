@@ -24,6 +24,7 @@ public class DirectionJoueur extends Player {
 //        if ("/quit".equals(dir)) {
 //            Player.over = true;
 //        } else {
+
         switch (dir) {
             case "L":
                 b.newPosition(0, -1);
