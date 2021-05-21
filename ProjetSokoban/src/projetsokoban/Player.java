@@ -32,8 +32,9 @@ public class Player {
         b.addVerticalWall(0, 0, 4);
         b.addHorizontalWall(1, 0, 2);
         b.addVerticalWall(1, 2, 2);
-//        b.addBox(4, 5);
-//        b.addTarget(1, 2);
+        b.addBox(4, 5);
+        b.addBox(2, 3);
+        b.addTarget(1, 2);
         b.setPosition(2, 2);
         b.display();
         for (int x = 0; x < 10; x++) {

@@ -25,7 +25,6 @@ public class Board {
     ArrayList<Position> box = new ArrayList<>();
     ArrayList<Position> target = new ArrayList<>();
     ArrayList<Position> wall = new ArrayList<>();
-    ArrayList<Position> character = new ArrayList<>();
     Position posPlayer;
 
     public Board(String name, int row, int col) {
@@ -64,9 +63,7 @@ public class Board {
             board[mur.rows][mur.cols] = '#';
         }
 
-        for (Position perso : character) {
-            board[perso.rows][perso.cols] = 'P';
-        }
+        board[posPlayer.rows][posPlayer.cols] = 'P';
 
     }
 
@@ -124,18 +121,6 @@ public class Board {
     }
 
     public void setPosition(int x, int y) {
-       Position pos = new Position(x, y);
-        this.posPlayer = pos;
-        character.add(pos);
-    }
-
-    public void newPosition(int x, int y) {
-        Position poss = new Position(posPlayer.rows + x , posPlayer.cols + y);
-        character.remove(posPlayer);//enlever le caractère 'P' de base
-        character.add(poss);
-        
-        //fonction qui calcul l'addition ou la soustraction 
-        //des coordonées actuels et celle donnée par le switch
-        // newPosition = x
+        this.posPlayer = new Position(x, y);
     }
 }

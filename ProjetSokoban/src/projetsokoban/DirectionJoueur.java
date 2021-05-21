@@ -27,21 +27,23 @@ public class DirectionJoueur extends Player {
 
         switch (dir) {
             case "L":
-                b.newPosition(0, -1);
-                break;
-
+//                if (!b.wall){
+                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols - 1);
+                    break;
+//                }
             case "U":
-                b.newPosition(-1, 0);
+                b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
                 break;
 
             case "R":
-                b.newPosition(0, 1);
+                b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
                 break;
 
             case "D":
-                b.newPosition(1, 0);
+                b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
                 break;
             default:
+                System.err.println("Pas bonne lettre");
         }
     }
 }
