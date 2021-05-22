@@ -14,33 +14,47 @@ import java.util.Scanner;
  */
 public class DirectionJoueur extends Player {
 
-    ArrayList<Position> character = new ArrayList<>();
-
     Scanner coord = new Scanner(System.in);
 
     public void dialogue(Board b) {
         System.out.println("Commande : [LRUD]");
         String dir = coord.nextLine();// demander la direction
-//        if ("/quit".equals(dir)) {
-//            Player.over = true;
-//        } else {
 
         switch (dir) {
             case "L":
-//                if (!b.wall){
+                if (b.equals(b.wall)) {
+                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
+                    System.err.println("attention au mur !");
+                } else {
                     b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols - 1);
-                    break;
-//                }
+                }
+                break;
+
             case "U":
-                b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
+                if (b.equals(b.wall)) {
+                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
+                    System.err.println("attention au mur !");
+                } else {
+                    b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
+                }
                 break;
 
             case "R":
-                b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
+                if (b.equals(b.wall)) {
+                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
+                    System.err.println("attention au mur !");
+                } else {
+                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
+                }
                 break;
 
             case "D":
-                b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
+                if (b.equals(b.wall)) {
+                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
+                    System.err.println("attention au mur !");
+                } else {
+                    b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
+                }
                 break;
             default:
                 System.err.println("Pas bonne lettre");

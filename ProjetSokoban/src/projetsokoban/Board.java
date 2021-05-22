@@ -121,6 +121,13 @@ public class Board {
     }
 
     public void setPosition(int x, int y) {
-        this.posPlayer = new Position(x, y);
+        this.posPlayer = new Position(x, y);       
+    }
+
+    public void obstacle(){
+        if(!equals(wall)){
+            this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
+            System.err.println("attention au mur !");
+        }
     }
 }
