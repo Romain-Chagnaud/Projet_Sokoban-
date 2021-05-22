@@ -41,6 +41,5 @@ public class Player {
             d.dialogue(b);
             b.display();
         }
-
     }
 }

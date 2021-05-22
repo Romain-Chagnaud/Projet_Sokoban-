@@ -121,11 +121,30 @@ public class Board {
     }
 
     public void setPosition(int x, int y) {
-        this.posPlayer = new Position(x, y);       
+        this.posPlayer = new Position(x, y);
     }
 
-    public void obstacle(){
-        if(!equals(wall)){
+    public boolean estDansPlateau(Position p) {
+        return (p.rows < rows && p.cols < cols && p.rows >= 0 && p.cols >= 0);
+    }
+
+    public char getContenuCase(Position p) {
+        return board[p.rows][p.cols];
+    }
+
+    public boolean valide() {
+        boolean ok = false;
+        if (!estDansPlateau(posPlayer)) {
+            if (getContenuCase(posPlayer) != board[rows][cols]) {
+                ok = false;
+                System.err.println("Choix invalide");
+            }
+        }
+        return ok;
+    }
+
+    public void obstacle() {
+        if (!equals(wall)) {
             this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
             System.err.println("attention au mur !");
         }
