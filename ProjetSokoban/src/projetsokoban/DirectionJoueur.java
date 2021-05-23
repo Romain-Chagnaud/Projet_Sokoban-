@@ -21,40 +21,20 @@ public class DirectionJoueur extends Player {
         String dir = coord.nextLine();// demander la direction
 
         switch (dir) {
-            case "L":
-                if (b.equals(b.wall)) {
-                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
-                    System.err.println("attention au mur !");
-                } else {
+            case "L":                
                     b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols - 1);
-                }
                 break;
 
             case "U":
-                if (b.equals(b.wall)) {
-                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
-                    System.err.println("attention au mur !");
-                } else {
                     b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
-                }
                 break;
 
             case "R":
-                if (b.equals(b.wall)) {
-                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
-                    System.err.println("attention au mur !");
-                } else {
                     b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
-                }
                 break;
 
-            case "D":
-                if (b.equals(b.wall)) {
-                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols);
-                    System.err.println("attention au mur !");
-                } else {
+            case "D":                
                     b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
-                }
                 break;
             default:
                 System.err.println("Pas bonne lettre");

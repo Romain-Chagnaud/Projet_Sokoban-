@@ -125,7 +125,7 @@ public class Board {
     }
 
     public boolean estDansPlateau(Position p) {
-        return (p.rows < rows && p.cols < cols && p.rows >= 0 && p.cols >= 0);
+        return (p.rows < cols && p.cols < rows && p.rows >= 0 && p.cols >= 0);
     }
 
     public char getContenuCase(Position p) {
@@ -143,10 +143,31 @@ public class Board {
         return ok;
     }
 
-    public void obstacle() {
-        if (!equals(wall)) {
-            this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
-            System.err.println("attention au mur !");
+//    public boolean obstacle() {
+//        boolean lol = false;
+//        if (equals(wall)) {
+//            if (posPlayer == equals(wall)) {
+//                this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
+//                System.err.println("attention au mur !");
+//            }
+//        }
+//        return lol;
+//    }
+    
+    public void checVict(){
+        boolean isVict = true;
+        for(var p : box){
+            if(!target.contains(p)){
+                isVict = false;
+                break;
+            }
         }
     }
+    
+    public boolean won(){
+        
+        
+        return false;
+    }
+    
 }

@@ -37,9 +37,28 @@ public class Player {
         b.addTarget(1, 2);
         b.setPosition(2, 2);
         b.display();
-        for (int x = 0; x < 10; x++) {
+        play(b, d);
+//        for (int x = 0; x < 10; x++) {
+//            d.dialogue(b);
+//            b.display();
+//        }
+    }
+    public static void play(Board b, DirectionJoueur d){
+        boolean quit = false;
+        while(!quit){
             d.dialogue(b);
             b.display();
+            
+            if(quit){
+                System.out.println("Abadon du Joueur");
+            }else{
+                quit = b.won();
+                if(quit){
+                    System.out.println("Vous avez Gagné");
+                }
+            }
         }
     }
+    
+    
 }
