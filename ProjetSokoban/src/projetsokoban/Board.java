@@ -165,9 +165,14 @@ public class Board {
     }
     
     public boolean won(){
+        boolean vict = false;
+        for(var c : box){
+            if(target.contains(c)){
+                vict = true;
+            }
+        }
         
-        
-        return false;
+        return vict;
     }
     
 }
