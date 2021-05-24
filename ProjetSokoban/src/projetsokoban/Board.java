@@ -146,7 +146,7 @@ public class Board {
 //    public boolean obstacle() {
 //        boolean lol = false;
 //        if (equals(wall)) {
-//            if (posPlayer == equals(wall)) {
+//            if (posPlayer == wall) {
 //                this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
 //                System.err.println("attention au mur !");
 //            }

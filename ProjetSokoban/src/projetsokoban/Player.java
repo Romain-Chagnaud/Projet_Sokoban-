@@ -20,11 +20,7 @@ public class Player {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Scanner consol = new Scanner(System.in);
-//        System.out.println("Nombre de lignes :");
-//        int rows = consol.nextInt();
-//        System.out.println("Nombre de colonnes :");
-//        int cols = consol.nextInt();
+
         Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
 
@@ -34,23 +30,22 @@ public class Player {
         b.addVerticalWall(1, 2, 2);
         b.addBox(4, 5);
         b.addBox(2, 3);
-        b.addTarget(1, 2);
+        b.addBox(5, 5);
+        b.addTarget(5, 5);
         b.setPosition(2, 2);
         b.display();
         play(b, d);
-//        for (int x = 0; x < 10; x++) {
-//            d.dialogue(b);
-//            b.display();
-//        }
     }
     public static void play(Board b, DirectionJoueur d){
         boolean quit = false;
         while(!quit){
             d.dialogue(b);
             b.display();
+            b.valide();
             
             if(quit){
                 System.out.println("Abadon du Joueur");
+                Player.over = true;
             }else{
                 quit = b.won();
                 if(quit){
@@ -59,6 +54,4 @@ public class Player {
             }
         }
     }
-    
-    
 }
