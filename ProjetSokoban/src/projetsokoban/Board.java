@@ -52,18 +52,18 @@ public class Board {
             Arrays.fill(row, '.'); //remplir une lligne de caractère 
         }
         for (Position boite : box) {
-            board[boite.rows][boite.cols] = 'c';
+            board[boite.row][boite.col] = 'c';
         }
 
         for (Position destination : target) {
-            board[destination.rows][destination.cols] = 'X';
+            board[destination.row][destination.col] = 'X';
         }
 
         for (Position mur : wall) {
-            board[mur.rows][mur.cols] = '#';
+            board[mur.row][mur.col] = '#';
         }
 
-        board[posPlayer.rows][posPlayer.cols] = 'P';
+        board[posPlayer.row][posPlayer.col] = 'P';
 
     }
 
@@ -125,54 +125,84 @@ public class Board {
     }
 
     public boolean estDansPlateau(Position p) {
-        return (p.rows < cols && p.cols < rows && p.rows >= 0 && p.cols >= 0);
+        return (p.row < rows && p.col < cols && p.row >= 0 && p.col >= 0);
     }
 
     public char getContenuCase(Position p) {
-        return board[p.rows][p.cols];
+        return board[p.row][p.col];
     }
 
-    public boolean valide() {
-        boolean ok = false;
-        if (!estDansPlateau(posPlayer)) {
-            if (getContenuCase(posPlayer) != board[rows][cols]) {
-                ok = false;
-                System.err.println("Choix invalide");
-            }
-        }
-        return ok;
+    public boolean valide(Position pos) {
+        return estDansPlateau(pos) && getContenuCase(pos) != '#';
     }
 
 //    public boolean obstacle() {
 //        boolean lol = false;
 //        if (equals(wall)) {
-//            if (posPlayer == wall) {
+//            if (board[posPlayer.rows][posPlayer.cols] != '#') {
 //                this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
 //                System.err.println("attention au mur !");
 //            }
 //        }
 //        return lol;
 //    }
-    
-    public void checVict(){
+    public void checVict() {
         boolean isVict = true;
-        for(var p : box){
-            if(!target.contains(p)){
+        for (var p : box) {
+            if (!target.contains(p)) {
                 isVict = false;
                 break;
             }
         }
     }
-    
-    public boolean won(){
+
+    public boolean won() {
         boolean vict = false;
-        for(var c : box){
-            if(target.contains(c)){
+        for (var c : box) {
+            if (target.contains(c)) {
                 vict = true;
             }
         }
-        
         return vict;
     }
-    
+
+    public Position next(String dir) {
+
+        switch (dir) {
+            case "U":
+                posPlayer = new Position(posPlayer.row - 1, posPlayer.col);
+                break;
+            case "D":
+                posPlayer = new Position(posPlayer.row + 1, posPlayer.col);
+                break;
+            case "L":
+                posPlayer = new Position(posPlayer.row, posPlayer.col - 1);
+                break;
+            case "R":
+                posPlayer = new Position(posPlayer.row, posPlayer.col + 1);
+                break;
+            default:
+
+        }
+        return posPlayer;
+    }
+
+    public void deplacement(String dir) {
+        Position p = next(dir);
+        System.out.println(wall);
+        if (valide(p)) {
+            if (box.contains(posPlayer)) {
+                Position posBox = next(dir);
+                if (valide(posBox) && !box.contains(p) && board[posBox.row][posBox.col] != '#') {
+                    box.remove(p);
+                    box.add(posBox);
+                    setPosition(p.row, p.row);
+                }
+            } else {
+                setPosition(p.row, p.col);
+            }
+        }
+
+    }
+
 }

@@ -32,26 +32,27 @@ public class Player {
         b.addBox(2, 3);
         b.addBox(5, 5);
         b.addTarget(5, 5);
-        b.setPosition(2, 2);
+        b.setPosition(3, 3);
         b.display();
         play(b, d);
     }
-    public static void play(Board b, DirectionJoueur d){
+
+    public static void play(Board b, DirectionJoueur d) {
         boolean quit = false;
-        while(!quit){
+        while (!quit) {
             d.dialogue(b);
             b.display();
-            b.valide();
-            
-            if(quit){
+
+            if (quit) {
                 System.out.println("Abadon du Joueur");
                 Player.over = true;
-            }else{
+            } else {
                 quit = b.won();
-                if(quit){
+                if (quit) {
                     System.out.println("Vous avez Gagné");
                 }
             }
         }
     }
+
 }

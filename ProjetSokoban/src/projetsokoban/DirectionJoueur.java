@@ -15,26 +15,26 @@ import java.util.Scanner;
 public class DirectionJoueur extends Player {
 
     Scanner coord = new Scanner(System.in);
-
+    
     public void dialogue(Board b) {
         System.out.println("Commande : [LRUD]");
         String dir = coord.nextLine();// demander la direction
-
+        
         switch (dir) {
-            case "L":                
-                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols - 1);
-                break;
-
+            case "L":
+//                b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols - 1);
+//                break;
             case "U":
-                    b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
-                break;
+//                b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
+//                break;
 
             case "R":
-                    b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
-                break;
+//                b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
+//                break;
 
-            case "D":                
-                    b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
+            case "D":
+//                b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
+                b.deplacement(dir);
                 break;
             default:
                 System.err.println("Pas bonne lettre");

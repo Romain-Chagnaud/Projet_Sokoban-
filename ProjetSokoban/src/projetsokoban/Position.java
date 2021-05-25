@@ -10,12 +10,12 @@ package projetsokoban;
  * @author romai
  */
 public class Position {
-    public int cols;
-    public int rows;
+    public int col;
+    public int row;
     
     public Position(int row, int col){
-        this.cols = col;
-        this.rows = row;
+        this.col = col;
+        this.row = row;
     } 
     
 }
