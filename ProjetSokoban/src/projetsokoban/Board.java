@@ -10,6 +10,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 /**
@@ -121,7 +122,7 @@ public class Board {
     }
 
     public void setPosition(int x, int y) {
-        this.posPlayer = new Position(x, y);
+        posPlayer = new Position(x, y);
     }
 
     public boolean estDansPlateau(Position p) {
@@ -133,19 +134,27 @@ public class Board {
     }
 
     public boolean valide(Position pos) {
-        return estDansPlateau(pos) && getContenuCase(pos) != '#';
+        return estDansPlateau(pos) && !contientMur(pos);
     }
 
+    public boolean contientMur(Position pos) {
+        return wall.contains(pos);
+    }
+
+    public boolean contientBox(Position pos) {
+        return box.contains(pos);
+    }
 //    public boolean obstacle() {
 //        boolean lol = false;
 //        if (equals(wall)) {
-//            if (board[posPlayer.rows][posPlayer.cols] != '#') {
-//                this.posPlayer = new Position(posPlayer.rows, posPlayer.cols);
+//            if (board[posPlayer.row][posPlayer.col] != '#') {
+//                this.posPlayer = new Position(posPlayer.row, posPlayer.col);
 //                System.err.println("attention au mur !");
 //            }
 //        }
 //        return lol;
 //    }
+
     public void checVict() {
         boolean isVict = true;
         for (var p : box) {
@@ -157,52 +166,55 @@ public class Board {
     }
 
     public boolean won() {
-        boolean vict = false;
         for (var c : box) {
             if (target.contains(c)) {
-                vict = true;
+                return false;
             }
         }
-        return vict;
+        return true; // vrai si tout les targets sont remplis de caisse. 
     }
 
     public Position next(String dir) {
-
+        Position p = null;
         switch (dir) {
             case "U":
-                posPlayer = new Position(posPlayer.row - 1, posPlayer.col);
+                p = new Position(posPlayer.row - 1, posPlayer.col);
                 break;
             case "D":
-                posPlayer = new Position(posPlayer.row + 1, posPlayer.col);
+                p = new Position(posPlayer.row + 1, posPlayer.col);
                 break;
             case "L":
-                posPlayer = new Position(posPlayer.row, posPlayer.col - 1);
+                p = new Position(posPlayer.row, posPlayer.col - 1);
                 break;
             case "R":
-                posPlayer = new Position(posPlayer.row, posPlayer.col + 1);
+                p = new Position(posPlayer.row, posPlayer.col + 1);
                 break;
             default:
+                break;
 
         }
-        return posPlayer;
+        return p;
     }
 
     public void deplacement(String dir) {
         Position p = next(dir);
-        System.out.println(wall);
-        if (valide(p)) {
-            if (box.contains(posPlayer)) {
-                Position posBox = next(dir);
-                if (valide(posBox) && !box.contains(p) && board[posBox.row][posBox.col] != '#') {
-                    box.remove(p);
-                    box.add(posBox);
-                    setPosition(p.row, p.row);
-                }
-            } else {
-                setPosition(p.row, p.col);
+        if (valide(p)) { //si dans plateau && pas de mur 
+            setPosition(p.row, p.col);
+            if (contientBox(p)) { // si il y a une caisse 
+            Position posBox = next(dir);
+            if (valide(posBox) && !contientBox(p) && board[posBox.row][posBox.col] != '#') {
+                box.remove(p);
+                box.add(posBox);
+                board[posBox.row][posBox.col] = 'C';
+                board[p.row][p.col] = '.';
+                setPosition(p.row, p.row);
             }
+        } else {
+            setPosition(p.row, p.col);
+        }
         }
 
+        
     }
 
 }

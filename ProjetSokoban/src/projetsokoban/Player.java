@@ -19,7 +19,7 @@ public class Player {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BuilderException {
 
         Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
@@ -33,8 +33,10 @@ public class Player {
         b.addBox(5, 5);
         b.addTarget(5, 5);
         b.setPosition(3, 3);
-        b.display();
-        play(b, d);
+        // b.display();
+        //play(b, d);
+        textBoardBuilder();
+        
     }
 
     public static void play(Board b, DirectionJoueur d) {
@@ -53,6 +55,18 @@ public class Player {
                 }
             }
         }
+    }
+
+    public static Board textBoardBuilder() throws BuilderException {
+        var builder = new TextBoardBuilder("A Simple Board");       
+        builder.addRows("##########");
+        builder.addRows("#x.x#....#");
+        builder.addRows("#...CC.P.#");
+        builder.addRows("#........#");
+        builder.addRows("##########");
+        Board b = builder.build();
+        return b;
+
     }
 
 }

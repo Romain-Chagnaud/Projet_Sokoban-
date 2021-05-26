@@ -22,18 +22,9 @@ public class DirectionJoueur extends Player {
         
         switch (dir) {
             case "L":
-//                b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols - 1);
-//                break;
             case "U":
-//                b.posPlayer = new Position(b.posPlayer.rows - 1, b.posPlayer.cols);
-//                break;
-
             case "R":
-//                b.posPlayer = new Position(b.posPlayer.rows, b.posPlayer.cols + 1);
-//                break;
-
             case "D":
-//                b.posPlayer = new Position(b.posPlayer.rows + 1, b.posPlayer.cols);
                 b.deplacement(dir);
                 break;
             default:
