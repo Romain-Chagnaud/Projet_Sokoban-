@@ -24,18 +24,18 @@ public class Player {
         Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
 
-        b.addHorizontalWall(0, 0, 3);
-        b.addVerticalWall(0, 0, 4);
-        b.addHorizontalWall(1, 0, 2);
-        b.addVerticalWall(1, 2, 2);
+        b.addHorizontalWall(0, 0, 10);
+        b.addVerticalWall(0, 0, 10);
+        b.addHorizontalWall(9, 0, 10);
+        b.addVerticalWall(0, 9, 10);
         b.addBox(4, 5);
         b.addBox(2, 3);
         b.addBox(5, 5);
         b.addTarget(5, 5);
         b.setPosition(3, 3);
-        // b.display();
-        //play(b, d);
-        textBoardBuilder();
+         b.display();
+        play(b, d);
+        //textBoardBuilder();
         
     }
 

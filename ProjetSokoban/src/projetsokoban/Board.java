@@ -140,10 +140,10 @@ public class Board {
     public boolean contientMur(Position pos) {
         return wall.contains(pos);
     }
-
-    public boolean contientBox(Position pos) {
-        return box.contains(pos);
-    }
+//
+//    public boolean contientBox(Position pos) {
+//        return box.contains(pos);
+//    }
 //    public boolean obstacle() {
 //        boolean lol = false;
 //        if (equals(wall)) {
@@ -200,9 +200,9 @@ public class Board {
         Position p = next(dir);
         if (valide(p)) { //si dans plateau && pas de mur 
             setPosition(p.row, p.col);
-            if (contientBox(p)) { // si il y a une caisse 
+            if (box.contains(p)) { // si il y a une caisse 
             Position posBox = next(dir);
-            if (valide(posBox) && !contientBox(p) && board[posBox.row][posBox.col] != '#') {
+            if (valide(posBox) && !box.contains(p) && board[posBox.row][posBox.col] != '#') {
                 box.remove(p);
                 box.add(posBox);
                 board[posBox.row][posBox.col] = 'C';
