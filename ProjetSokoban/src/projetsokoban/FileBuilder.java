@@ -26,6 +26,8 @@ public class FileBuilder {
             while(bit.hasNextLine()){
                 build.addRows(bit.nextLine());
             }
+          bit.close();
+          b = build.build();
         } catch (IOException e) {
             e.printStackTrace();
         }

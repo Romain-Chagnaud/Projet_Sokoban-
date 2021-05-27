@@ -23,7 +23,7 @@ public class Player {
 
         Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
-
+        /*
         b.addHorizontalWall(0, 0, 10);
         b.addVerticalWall(0, 0, 10);
         b.addHorizontalWall(9, 0, 10);
@@ -33,9 +33,15 @@ public class Player {
         b.addBox(5, 5);
         b.addTarget(5, 5);
         b.setPosition(3, 3);
+//        b.display();
+//        play(b, d);
+*/      
+        b = textBoardBuilder();
         b.display();
-        play(b, d);
-//        textBoardBuilder();
+        
+//        FileBuilder lol = new FileBuilder();
+//        b = lol.fileBuilder();
+//        b.display();
     }
 
     public static void play(Board b, DirectionJoueur d) {
@@ -57,9 +63,9 @@ public class Player {
     }
 
     public static Board textBoardBuilder() throws BuilderException {
-        var builder = new TextBoardBuilder("A Simple Board");       
+        var builder = new TextBoardBuilder("A Simple Board");
         builder.addRows("##########");
-        builder.addRows("#x.x#....#");
+        builder.addRows("#X.X#....#");
         builder.addRows("#...CC.P.#");
         builder.addRows("#........#");
         builder.addRows("##########");

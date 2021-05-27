@@ -178,11 +178,10 @@ public class Board {
         Position p = null;
         switch (dir) {
             case "U":
-
                 if (pos != null) {
-                    p = new Position(pos.row - 1, pos.col);
+                    p = new Position(pos.row - 1, pos.col); // position dans la casse suivante
                 } else {
-                    p = new Position(posPlayer.row - 1, posPlayer.col);
+                    p = new Position(posPlayer.row - 1, posPlayer.col);//position du joueur 
                 }
 
                 break;
@@ -222,11 +221,10 @@ public class Board {
 
                 Position posBox = next(dir, p);
                 if (valide(posBox)) {
-
                     box.remove(p);
                     box.add(posBox);
-
                     setPosition(p.row, p.col);
+                    checVict();
                 }
             } else {
                 setPosition(p.row, p.col);

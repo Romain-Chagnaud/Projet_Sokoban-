@@ -28,23 +28,25 @@ public class TextBoardBuilder implements BoardBuilder {
         row++;
         col = nom.length();
         niveau = niveau.concat(mot);
+
+        
+        
+        //faire des boucles pour faire apparaitre le player et les caisses
     }
 
     @Override
     public Board build() throws BuilderException {
         Board b = new Board(nom, row, col);
-        int x = 0;
         for (int r = 0; r < row; r++) {
             for (int d = 0; d < col; d++) {
-                char sos = niveau.charAt(x);
-                x++;
+                char sos = niveau.charAt(d);
                 switch (sos) {
                     case '#':
                         b.addHorizontalWall(r, d, 1);
                         break;
                     case 'P':
                         b.setPosition(r, d);
-                        b.posPlayer = new Position(r, d);
+                        b.posPlayer = new Position(r, d);                     
                         break;
                     case '.':
                         b.board[r][d] = '.';
@@ -60,5 +62,5 @@ public class TextBoardBuilder implements BoardBuilder {
             }
         }
         return b;
-    } 
+    }
 }
