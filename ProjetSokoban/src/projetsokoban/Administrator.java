@@ -10,5 +10,10 @@ package projetsokoban;
  * @author romai
  */
 public class Administrator {
-
+    
+    public static void main(String[] args){
+        
+    }
+    
+    
 }
