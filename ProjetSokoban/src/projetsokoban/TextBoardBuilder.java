@@ -38,12 +38,13 @@ public class TextBoardBuilder implements BoardBuilder {
             for (int d = 0; d < col; d++) {
                 char sos = niveau.charAt(x);
                 x++;
-                switch (x) {
+                switch (sos) {
                     case '#':
                         b.addHorizontalWall(r, d, 1);
                         break;
                     case 'P':
                         b.setPosition(r, d);
+                        b.posPlayer = new Position(r, d);
                         break;
                     case '.':
                         b.board[r][d] = '.';

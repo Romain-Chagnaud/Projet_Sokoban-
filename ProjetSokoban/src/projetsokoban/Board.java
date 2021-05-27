@@ -174,20 +174,38 @@ public class Board {
         return true; // vrai si tout les targets sont remplis de caisse. 
     }
 
-    public Position next(String dir) {
+    public Position next(String dir, Position pos) {
         Position p = null;
         switch (dir) {
             case "U":
-                p = new Position(posPlayer.row - 1, posPlayer.col);
+
+                if (pos != null) {
+                    p = new Position(pos.row - 1, pos.col);
+                } else {
+                    p = new Position(posPlayer.row - 1, posPlayer.col);
+                }
+
                 break;
             case "D":
-                p = new Position(posPlayer.row + 1, posPlayer.col);
+                if (pos != null) {
+                    p = new Position(pos.row + 1, pos.col);
+                } else {
+                    p = new Position(posPlayer.row + 1, posPlayer.col);
+                }
                 break;
             case "L":
-                p = new Position(posPlayer.row, posPlayer.col - 1);
+                if (pos != null) {
+                    p = new Position(pos.row, pos.col - 1);
+                } else {
+                    p = new Position(posPlayer.row, posPlayer.col - 1);
+                }
                 break;
             case "R":
-                p = new Position(posPlayer.row, posPlayer.col + 1);
+                if (pos != null) {
+                    p = new Position(pos.row, pos.col + 1);
+                } else {
+                    p = new Position(posPlayer.row, posPlayer.col + 1);
+                }
                 break;
             default:
                 break;
@@ -197,24 +215,22 @@ public class Board {
     }
 
     public void deplacement(String dir) {
-        Position p = next(dir);
+        Position p = next(dir, null);
         if (valide(p)) { //si dans plateau && pas de mur 
-            setPosition(p.row, p.col);
+
             if (box.contains(p)) { // si il y a une caisse 
-            Position posBox = next(dir);
-            if (valide(posBox) && !box.contains(p) && board[posBox.row][posBox.col] != '#') {
-                box.remove(p);
-                box.add(posBox);
-                board[posBox.row][posBox.col] = 'C';
-                board[p.row][p.col] = '.';
-                setPosition(p.row, p.row);
+
+                Position posBox = next(dir, p);
+                if (valide(posBox)) {
+
+                    box.remove(p);
+                    box.add(posBox);
+
+                    setPosition(p.row, p.col);
+                }
+            } else {
+                setPosition(p.row, p.col);
             }
-        } else {
-            setPosition(p.row, p.col);
         }
-        }
-
-        
     }
-
 }

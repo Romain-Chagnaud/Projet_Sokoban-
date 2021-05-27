@@ -22,8 +22,14 @@ public class DirectionJoueur extends Player {
         
         switch (dir) {
             case "L":
+                b.deplacement(dir);
+                break;
             case "U":
+                b.deplacement(dir);
+                break;
             case "R":
+                b.deplacement(dir);
+                break;
             case "D":
                 b.deplacement(dir);
                 break;

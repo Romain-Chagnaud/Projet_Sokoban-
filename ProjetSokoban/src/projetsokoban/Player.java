@@ -33,10 +33,9 @@ public class Player {
         b.addBox(5, 5);
         b.addTarget(5, 5);
         b.setPosition(3, 3);
-         b.display();
+        b.display();
         play(b, d);
-        //textBoardBuilder();
-        
+//        textBoardBuilder();
     }
 
     public static void play(Board b, DirectionJoueur d) {
