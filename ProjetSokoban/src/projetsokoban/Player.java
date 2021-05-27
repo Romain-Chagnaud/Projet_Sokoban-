@@ -36,8 +36,8 @@ public class Player {
 //        b.display();
 //        play(b, d);
 */      
-        b = textBoardBuilder();
-        b.display();
+//        b = textBoardBuilder();
+//        b.display();
         
 //        FileBuilder lol = new FileBuilder();
 //        b = lol.fileBuilder();

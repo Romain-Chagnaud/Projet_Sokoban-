@@ -19,7 +19,7 @@ public class Administrator {
     static Scanner popopo = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String chemin = "data/librairie.sqlite3";
+        String chemin = "6librairie.sqlite3";
         String URL = "jdbc:sqlite:" + chemin;
         chargerPiloteSQLite();
         try (Connection connexion = DriverManager.getConnection(URL)) {

@@ -28,8 +28,6 @@ public class TextBoardBuilder implements BoardBuilder {
         row++;
         col = nom.length();
         niveau = niveau.concat(mot);
-
-        
         
         //faire des boucles pour faire apparaitre le player et les caisses
     }
