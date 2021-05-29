@@ -58,7 +58,7 @@ public class Administrator {
             System.out.println("5. Supprimer board depuis la base");
             System.out.println("6 Quitter");
 
-            String commande = enleverEspaces(popopo.nextLine());
+            String commande = enleveEspaces(popopo.nextLine());
            
 
             switch (commande) {
@@ -89,7 +89,7 @@ public class Administrator {
 
     }
 
-    private static String enleverEspaces(String string) {
+    private static String enleveEspaces(String string) {
         return string.replaceAll("\\s+", "").toLowerCase();
 
     }
@@ -108,11 +108,11 @@ public class Administrator {
          }
      }
      
-     public void add(String id, Board b)throws SQLException{
+     private void add(String id, Board b)throws SQLException{
          
      }
      
-     public void remove(String id)throws SQLException{
+     private void remove(String id)throws SQLException{
          
      }
      

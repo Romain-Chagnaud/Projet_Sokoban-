@@ -30,6 +30,7 @@ public class Player {
         b.addVerticalWall(0, 9, 10);
         b.addBox(4, 5);
         b.addBox(2, 3);
+        b.addTarget(6, 7);
         b.addTarget(5, 5);
         b.setPosition(3, 3);
         b.display();
@@ -37,7 +38,7 @@ public class Player {
  
 //        b = textBoardBuilder();
 //        b.display();
-        
+//        
 //        FileBuilder lol = new FileBuilder();
 //        b = lol.fileBuilder();
 //        b.display();
@@ -48,7 +49,7 @@ public class Player {
         while (!quit) {
             d.dialogue(b);
             b.display();
-
+            
             if (quit) {
                 System.out.println("Abadon du Joueur");
                 Player.over = true;

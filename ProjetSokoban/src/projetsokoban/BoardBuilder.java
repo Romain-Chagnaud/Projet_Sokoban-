@@ -10,5 +10,5 @@ package projetsokoban;
  * @author romai
  */
 public interface BoardBuilder {
-    Board build() throws BuilderException;
+    public Board build() throws BuilderException;
 }

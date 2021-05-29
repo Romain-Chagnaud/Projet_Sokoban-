@@ -52,11 +52,11 @@ public class Board {
         for (char[] row : board) { //pour chaque ligne
             Arrays.fill(row, '.'); //remplir une lligne de caractère 
         }
-        
+
         for (Position mur : wall) {
             board[mur.row][mur.col] = '#';
         }
-        
+
         for (Position destination : target) {
             board[destination.row][destination.col] = 'X';
         }
@@ -130,10 +130,6 @@ public class Board {
         return (p.row < rows && p.col < cols && p.row >= 0 && p.col >= 0);
     }
 
-    public char getContenuCase(Position p) {
-        return board[p.row][p.col];
-    }
-
     public boolean valide(Position pos) {
         return estDansPlateau(pos) && !contientMur(pos);
     }
@@ -142,9 +138,6 @@ public class Board {
         return wall.contains(pos);
     }
 
-    public boolean contientTarget(Position pos) {
-        return target.contains(pos);
-    }
 
     public void checVict() {
         boolean isVict = true;

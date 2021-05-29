@@ -28,7 +28,7 @@ public class TextBoardBuilder implements BoardBuilder {
         row++;
         col = nom.length();
         niveau = niveau.concat(mot);
-        
+
         //faire des boucles pour faire apparaitre le player et les caisses
     }
 
@@ -44,7 +44,7 @@ public class TextBoardBuilder implements BoardBuilder {
                         break;
                     case 'P':
                         b.setPosition(r, d);
-                        b.posPlayer = new Position(r, d);                     
+                        b.posPlayer = new Position(r, d);
                         break;
                     case '.':
                         b.board[r][d] = '.';
@@ -61,4 +61,5 @@ public class TextBoardBuilder implements BoardBuilder {
         }
         return b;
     }
+
 }
