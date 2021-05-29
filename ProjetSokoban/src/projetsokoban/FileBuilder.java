@@ -22,9 +22,11 @@ public class FileBuilder {
             FileInputStream prog = new FileInputStream("Prog.txt");
             Scanner bit = new Scanner(prog);
             var build = new TextBoardBuilder(bit.nextLine());
+            String lig = bit.nextLine();
             
             while(bit.hasNextLine()){
                 build.addRows(bit.nextLine());
+                lig = bit.nextLine();
             }
           bit.close();
           b = build.build();

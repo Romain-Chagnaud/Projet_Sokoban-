@@ -5,10 +5,12 @@
  */
 package projetsokoban;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.sql.DatabaseMetaData;
 
 /**
  *
@@ -19,7 +21,7 @@ public class Administrator {
     static Scanner popopo = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String chemin = "6librairie.sqlite3";
+        String chemin = "librairie.sqlite3";
         String URL = "jdbc:sqlite:" + chemin;
         chargerPiloteSQLite();
         try (Connection connexion = DriverManager.getConnection(URL)) {
@@ -57,14 +59,16 @@ public class Administrator {
             System.out.println("6 Quitter");
 
             String commande = enleverEspaces(popopo.nextLine());
-            System.out.println();
+           
 
             switch (commande) {
                 case "6":
                     encore = false;
-                    break;
+                    break;                  
                 case "1":
-                    //TODO  
+                    System.out.println("Nom de votre base :");
+                     String mess = popopo.nextLine();
+                    creationBase(mess);
                     break;
                 case "2":
                     //TODO
@@ -89,4 +93,32 @@ public class Administrator {
         return string.replaceAll("\\s+", "").toLowerCase();
 
     }
+    
+     public static void creationBase(String fileName) throws SQLException {
+         String url = "org.sqlite.JDBC" + fileName;
+         try(Connection con = DriverManager.getConnection(url)){
+             if(con != null){
+                 DatabaseMetaData meta = con.getMetaData();
+                 System.out.println("Une nouvelle base a été créer");
+             }
+         }
+         catch(SQLException e){
+             System.err.println(e.getMessage());
+             System.out.println("La Base ne c'est pas créé");
+         }
+     }
+     
+     public void add(String id, Board b)throws SQLException{
+         
+     }
+     
+     public void remove(String id)throws SQLException{
+         
+     }
+     
+//     Board get(String id)throws SQLException{
+//         Board c = new Board(id, c.rows, c.cols);
+//         return c;
+//     }
+//     
 }

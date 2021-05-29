@@ -23,19 +23,18 @@ public class Player {
 
         Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
-        /*
+        
         b.addHorizontalWall(0, 0, 10);
         b.addVerticalWall(0, 0, 10);
         b.addHorizontalWall(9, 0, 10);
         b.addVerticalWall(0, 9, 10);
         b.addBox(4, 5);
         b.addBox(2, 3);
-        b.addBox(5, 5);
         b.addTarget(5, 5);
         b.setPosition(3, 3);
-//        b.display();
-//        play(b, d);
-*/      
+        b.display();
+        play(b, d);
+ 
 //        b = textBoardBuilder();
 //        b.display();
         
@@ -54,7 +53,7 @@ public class Player {
                 System.out.println("Abadon du Joueur");
                 Player.over = true;
             } else {
-                quit = b.won();
+                quit = !b.won();
                 if (quit) {
                     System.out.println("Vous avez Gagné");
                 }

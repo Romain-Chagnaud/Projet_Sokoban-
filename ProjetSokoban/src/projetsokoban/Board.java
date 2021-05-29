@@ -52,16 +52,17 @@ public class Board {
         for (char[] row : board) { //pour chaque ligne
             Arrays.fill(row, '.'); //remplir une lligne de caractère 
         }
-        for (Position boite : box) {
-            board[boite.row][boite.col] = 'c';
+        
+        for (Position mur : wall) {
+            board[mur.row][mur.col] = '#';
         }
-
+        
         for (Position destination : target) {
             board[destination.row][destination.col] = 'X';
         }
 
-        for (Position mur : wall) {
-            board[mur.row][mur.col] = '#';
+        for (Position boite : box) {
+            board[boite.row][boite.col] = 'c';
         }
 
         board[posPlayer.row][posPlayer.col] = 'P';
@@ -140,20 +141,10 @@ public class Board {
     public boolean contientMur(Position pos) {
         return wall.contains(pos);
     }
-//
-//    public boolean contientBox(Position pos) {
-//        return box.contains(pos);
-//    }
-//    public boolean obstacle() {
-//        boolean lol = false;
-//        if (equals(wall)) {
-//            if (board[posPlayer.row][posPlayer.col] != '#') {
-//                this.posPlayer = new Position(posPlayer.row, posPlayer.col);
-//                System.err.println("attention au mur !");
-//            }
-//        }
-//        return lol;
-//    }
+
+    public boolean contientTarget(Position pos) {
+        return target.contains(pos);
+    }
 
     public void checVict() {
         boolean isVict = true;
@@ -167,9 +158,12 @@ public class Board {
 
     public boolean won() {
         for (var c : box) {
-            if (target.contains(c)) {
-                return false;
+            for (var p : target) {
+                if (board[c.row][c.col] == board[p.row][p.col]) {
+                    return false;
+                }
             }
+
         }
         return true; // vrai si tout les targets sont remplis de caisse. 
     }
@@ -183,7 +177,6 @@ public class Board {
                 } else {
                     p = new Position(posPlayer.row - 1, posPlayer.col);//position du joueur 
                 }
-
                 break;
             case "D":
                 if (pos != null) {
