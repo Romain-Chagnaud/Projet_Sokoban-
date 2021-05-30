@@ -6,9 +6,13 @@
 package projetsokoban;
 
 import java.awt.Dialog;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
+ * Classe qui permet de lancer le jeu et la lecture du jeu depuis un fichier
  *
  * @author romai
  */
@@ -18,60 +22,58 @@ public class Player {
 
     /**
      * @param args the command line arguments
+     * @throws projetsokoban.BuilderException
      */
-    public static void main(String[] args) throws BuilderException {
-
+    public static void main(String[] args) throws BuilderException, IOException {
         Board b = new Board("coucou", 10, 10);
         DirectionJoueur d = new DirectionJoueur();
-        
-        b.addHorizontalWall(0, 0, 10);
+        b.addHorizontalWall(9, 0, 9);
+        b.addHorizontalWall(0, 1, 9);
         b.addVerticalWall(0, 0, 10);
-        b.addHorizontalWall(9, 0, 10);
         b.addVerticalWall(0, 9, 10);
-        b.addBox(4, 5);
-        b.addBox(2, 3);
-        b.addTarget(6, 7);
-        b.addTarget(5, 5);
-        b.setPosition(3, 3);
+        b.addBox(2, 1);
+        b.addTarget(3, 1);
+        b.setPosition(3, 4);
         b.display();
         play(b, d);
- 
-//        b = textBoardBuilder();
+//        fileBoardBuilder(b);
 //        b.display();
-//        
-//        FileBuilder lol = new FileBuilder();
-//        b = lol.fileBuilder();
-//        b.display();
+
     }
 
+    /**
+     * Méthode qui gère la boucle du jeu
+     *
+     * @param b le board sur le lequel on joue
+     * @param d permet le déplacement du joueur
+     */
     public static void play(Board b, DirectionJoueur d) {
         boolean quit = false;
         while (!quit) {
             d.dialogue(b);
             b.display();
             
+            quit = !b.won();
             if (quit) {
-                System.out.println("Abadon du Joueur");
-                Player.over = true;
-            } else {
-                quit = !b.won();
-                if (quit) {
-                    System.out.println("Vous avez Gagné");
-                }
+                System.out.println("Vous avez Gagné");
             }
         }
     }
 
-    public static Board textBoardBuilder() throws BuilderException {
-        var builder = new TextBoardBuilder("A Simple Board");
-        builder.addRows("##########");
-        builder.addRows("#X.X#....#");
-        builder.addRows("#...CC.P.#");
-        builder.addRows("#........#");
-        builder.addRows("##########");
-        Board b = builder.build();
-        return b;
-
+    /**
+     * Méthode permetant l'affichage d'un fichier texte choisi
+     *
+     * @param b le board sur le lequel va être afficher notre fichier
+     * @throws IOException exception levé
+     */
+    public static void fileBoardBuilder(Board b) throws IOException {
+        String ligne;
+        BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\romai\\Documents\\S2_IUT\\TPS2\\UE21\\M2103_P_O_O\\Projet Sokoban\\ProjetSokoban\\Prog.txt"));
+        int r = 0;
+        while ((ligne = in.readLine()) != null) {
+            Board.textBoardBuilder(b, ligne, r);
+            r++;
+        }
+        in.close();
     }
-
 }

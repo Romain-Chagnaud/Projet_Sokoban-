@@ -6,6 +6,10 @@
 package projetsokoban;
 
 import java.beans.Statement;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,7 +24,7 @@ public class Administrator {
 
     static Scanner popopo = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String chemin = "librairie.sqlite3";
         String URL = "jdbc:sqlite:" + chemin;
         chargerPiloteSQLite();
@@ -47,7 +51,7 @@ public class Administrator {
         // "select * from livres where id = ?"
     }
 
-    private static void dialoguer(Connection c) throws SQLException {
+    private static void dialoguer(Connection c) throws SQLException, IOException {
         boolean encore = true;
         while (encore) {
             System.out.println("ADMINISTRATION INTERFACE - USE WITH CAUTION :");
@@ -59,28 +63,27 @@ public class Administrator {
             System.out.println("6 Quitter");
 
             String commande = enleveEspaces(popopo.nextLine());
-           
+           Board b = new Board("coucou", 10, 10);
 
             switch (commande) {
                 case "6":
                     encore = false;
                     break;                  
                 case "1":
-                    System.out.println("Nom de votre base :");
-                     String mess = popopo.nextLine();
-                    creationBase(mess);
+                    
                     break;
                 case "2":
-                    //TODO
+                    
                     break;
                 case "3":
-                    //TODO
+                    
                     break;
                 case "4":
-                    //TODO
+                    add("hey",b);
+                    b.display();
                     break;
                 case "5":
-                    //TODO
+                    
                     break;
                 default:
                     System.out.println("commande inconnue : " + commande);
@@ -94,25 +97,23 @@ public class Administrator {
 
     }
     
-     public static void creationBase(String fileName) throws SQLException {
-         String url = "org.sqlite.JDBC" + fileName;
-         try(Connection con = DriverManager.getConnection(url)){
-             if(con != null){
-                 DatabaseMetaData meta = con.getMetaData();
-                 System.out.println("Une nouvelle base a été créer");
-             }
-         }
-         catch(SQLException e){
-             System.err.println(e.getMessage());
-             System.out.println("La Base ne c'est pas créé");
-         }
-     }
-     
-     private void add(String id, Board b)throws SQLException{
+     public static void creationBase(Board b) throws SQLException {
          
      }
      
-     private void remove(String id)throws SQLException{
+     private static void add(String id, Board b)throws SQLException, FileNotFoundException, IOException{      
+         String ligne;
+         id = "C:\\Users\\romai\\Documents\\S2_IUT\\TPS2\\UE21\\M2103_P_O_O\\Projet Sokoban\\ProjetSokoban\\Prog.txt";
+        BufferedReader in = new BufferedReader(new FileReader(id));
+        int r = 0;
+        while ((ligne = in.readLine()) != null) {
+            Board.textBoardBuilder(b, ligne, r);
+            r++;
+        }
+        in.close();
+    }
+     
+   private void remove(String id)throws SQLException{
          
      }
      

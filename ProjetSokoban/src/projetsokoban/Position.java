@@ -11,9 +11,21 @@ package projetsokoban;
  */
 public class Position {
 
+    /**
+     * Nombre de colonnes
+     */
     public int col;
+
+    /**
+     * nombre de lignes
+     */
     public int row;
 
+    /**
+     * constructeur de la position en fonctuion de la ligne et de la colonnes
+     * @param row
+     * @param col
+     */
     public Position(int row, int col) {
         this.col = col;
         this.row = row;

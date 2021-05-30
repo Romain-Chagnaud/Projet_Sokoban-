@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/Player.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/Board.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/Position.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/BoardBuilder.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/FileBuilder.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/DirectionJoueur.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/TextBoardBuilder.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/BuilderException.java</file>
-            <file>file:/C:/Users/romai/Documents/S2_IUT/TPS2/UE21/M2103_P_O_O/Projet%20Sokoban/ProjetSokoban/src/projetsokoban/Administrator.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

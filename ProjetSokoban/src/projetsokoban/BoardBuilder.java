@@ -6,9 +6,10 @@
 package projetsokoban;
 
 /**
- *
+ * Interface du BoardBuilder
  * @author romai
  */
 public interface BoardBuilder {
-    public Board build() throws BuilderException;
+
+    Board build() throws BuilderException;
 }
