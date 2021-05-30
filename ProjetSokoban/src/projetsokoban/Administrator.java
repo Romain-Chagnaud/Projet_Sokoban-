@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 
 /**
  *
@@ -70,20 +71,20 @@ public class Administrator {
                     encore = false;
                     break;                  
                 case "1":
-                    
+                    creationBase(b);
                     break;
                 case "2":
-                    
+                    listerBoard(c);
                     break;
                 case "3":
-                    
+                    get(" ");
                     break;
                 case "4":
-                    add("hey",b);
+                    add(" ",b);
                     b.display();
                     break;
                 case "5":
-                    
+                    remove(" ");
                     break;
                 default:
                     System.out.println("commande inconnue : " + commande);
@@ -113,13 +114,25 @@ public class Administrator {
         in.close();
     }
      
-   private void remove(String id)throws SQLException{
+   private static void remove(String id)throws SQLException{
          
      }
      
-//     Board get(String id)throws SQLException{
-//         Board c = new Board(id, c.rows, c.cols);
-//         return c;
-//     }
-//     
+     private static Board get(String id)throws SQLException{
+         Board b = new Board(id, 0, 0);
+         return b;
+     }
+     
+   
+   private static void listerBoard(Connection c) throws SQLException {
+        java.sql.Statement statement = c.createStatement();
+        ResultSet resultats = statement.executeQuery("select * from board");
+        while (resultats.next()) {
+            int id = resultats.getInt("id_board");
+            String titre = resultats.getString("board");
+            System.out.format("%d\t%s\n", id, titre);
+        }
+    }
+   
+   
 }
